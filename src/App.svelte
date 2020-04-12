@@ -5,33 +5,35 @@
     { name: "Tsunade", beltColor: "Pink", age: 45, id: 3 }
   ];
 
-  const handleDelete = (id) => {
-  people = people.filter((person) => person.id !== id);
-  }
+  const handleDelete = id => {
+    people = people.filter(person => person.id !== id);
+  };
+
+  let num = 5;
 </script>
 
 <style>
   main {
-    margin:  25px;
-    padding:  25px;
+    margin: 25px;
+    padding: 25px;
   }
 
   h1 {
     color: orangered;
     display: block;
-    font-family:  sans-serif;
+    font-family: sans-serif;
   }
 
   h5 {
     color: darkorange;
     display: block;
-    font-family:  serif;
+    font-family: serif;
   }
 
   h4 {
     color: navy;
     display: block;
-    font-family:  monospace;
+    font-family: monospace;
   }
 
   button {
@@ -61,13 +63,35 @@
   </div>
 </main> -->
 
+<!-- {#if num > 20}
+<p>Greater than 20.</p>
+{:else if num > 5}
+<p>Greater than 5.</p>
+{:else}
+<p>Neither</p>
+{/if} -->
+
 <main>
   {#each people as person (person.id)}
-    <div style="margin-bottom: 50px;">
+    <div>
       <h1>Here, this is {person.name}.</h1>
+      {#if person.beltColor === 'Red'}
+        <p>
+          <em>Master Man!</em>
+        </p>
+      {:else}
+        <p>
+          <b>Others</b>
+        </p>
+      {/if}
       <h5>The ninja is {person.age} years old.</h5>
       <h4>Corrspondent belt color is {person.beltColor}.</h4>
-      <button on:click={() => {handleDelete(person.id)}}>Delete</button>
+      <button
+        on:click={() => {
+          handleDelete(person.id);
+        }}>
+        Delete
+      </button>
     </div>
   {:else}
     <p>No people to show...</p>
