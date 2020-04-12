@@ -1,11 +1,24 @@
 <script>
-  let name = "Rabby";
-  let profession = "Frontend Developer";
+  //   let name = "Rabby";
+  let firstName = "Istiqur";
+  let lastName = "Rahman";
+  //   let profession = "Frontend Developer";
   let color = "blue";
 
+  // Reactive value
+  $: fullName = `${firstName} ${lastName}`;
+  // Reactive statement
+  //   $: console.log(color);
+  //   $: {
+  //     console.log(firstName);
+  //     console.log(color);
+  //     console.log(lastName);
+  //     console.log(fullName);
+  //   }
+
   const handleClick = () => {
-	// name = "Istiqur";
-	color = "black";
+    // name = "Istiqur";
+    color = "black";
   };
 
   const handleInput = e => {
@@ -54,11 +67,19 @@
   }
 </style>
 
-<main>
+<!-- <main>
   <h1>Meet {name} :)</h1>
   <h3 style="color: {color}">He likes the color {color}</h3>
   <button on:click={handleClick}>Update Name</button>
   <!-- <input type="text" on:input={handleInput} value={name} /> -->
-  <!-- <input type="text" on:input={handleInput} /> -->
+<!-- <input type="text" on:input={handleInput} /> -->
+<!-- <input type="text" bind:value={color} />
+</main> -->
+-->
+<main>
+  <h3>{fullName} likes the color {color}</h3>
+  <!-- <h3>{firstName} {lastName} likes the color {color}</h3> -->
+  <input type="text" bind:value={firstName} />
+  <input type="text" bind:value={lastName} />
   <input type="text" bind:value={color} />
 </main>
