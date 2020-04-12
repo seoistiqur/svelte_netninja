@@ -4,52 +4,42 @@
     { name: "Jiraiya", beltColor: "Red", age: 55, id: 2 },
     { name: "Tsunade", beltColor: "Pink", age: 45, id: 3 }
   ];
+
+  const handleDelete = (id) => {
+  people = people.filter((person) => person.id !== id);
+  }
 </script>
 
 <style>
   main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    margin:  25px;
+    padding:  25px;
   }
 
   h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 2em;
-    font-weight: 100;
+    color: orangered;
+    display: block;
+    font-family:  sans-serif;
   }
 
   h5 {
-    color: royalblue;
-    text-transform: lowercase;
-    font-size: 1.5em;
+    color: darkorange;
+    display: block;
+    font-family:  serif;
+  }
+
+  h4 {
+    color: navy;
+    display: block;
+    font-family:  monospace;
   }
 
   button {
-    color: black;
-    background-color: tomato;
-    font-family: cursive;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bolder;
-    border-radius: 20%;
-    -moz-box-shadow: inset 0 0 15px #000000;
-    -webkit-box-shadow: inset 0 0 15px #000000;
-    box-shadow: inset 0 0 15px #000000;
+    box-shadow: inset 0 0 10px #000000;
   }
 
   button:hover {
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
   }
 </style>
 
@@ -76,8 +66,8 @@
     <div style="margin-bottom: 50px;">
       <h1>Here, this is {person.name}.</h1>
       <h5>The ninja is {person.age} years old.</h5>
-      <h6>Corrspondent belt color is {person.beltColor}.</h6>
-      <hr />
+      <h4>Corrspondent belt color is {person.beltColor}.</h4>
+      <button on:click={() => {handleDelete(person.id)}}>Delete</button>
     </div>
   {:else}
     <p>No people to show...</p>
@@ -116,7 +106,7 @@
   <h1>Meet {name} :)</h1>
   <h3 style="color: {color}">He likes the color {color}</h3>
   <button on:click={handleClick}>Update Name</button>
-  <!-- <input type="text" on:input={handleInput} value={name} /> -->
+   <input type="text" on:input={handleInput} value={name} /> -->
 <!-- <input type="text" on:input={handleInput} /> -->
 <!-- <input type="text" bind:value={color} />
 </main> -->
