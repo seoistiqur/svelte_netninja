@@ -1,6 +1,11 @@
 <script>
   import Modal from "./Modal.svelte";
 
+  let displayModal = false;
+  const toggleModal = () => {
+    displayModal = !displayModal;
+  };
+
   let people = [
     { name: "Naruto", beltColor: "Orange", age: 15, id: 1 },
     { name: "Jiraiya", beltColor: "Red", age: 55, id: 2 },
@@ -14,6 +19,33 @@
   let num = 5;
 </script>
 
+<style>
+  h1 {
+    color: orangered;
+    display: block;
+    font-family: sans-serif;
+  }
+
+  h5 {
+    color: darkorange;
+    display: block;
+    font-family: serif;
+  }
+
+  h4 {
+    color: navy;
+    display: block;
+    font-family: monospace;
+  }
+
+  button {
+    box-shadow: inset 0 0 10px #000000;
+  }
+
+  button:hover {
+    box-shadow: 0 8px 6px -6px black;
+  }
+</style>
 
 <!-- <main>
   <div>
@@ -41,9 +73,17 @@
 <p>Neither</p>
 {/if} -->
 
-<Modal />
+<!-- <Modal message="Prop from main component ..." isPromo={true} displayModal={displayModal} /> -->
+<Modal
+  message="Prop from main component ..."
+  isPromo={true}
+  {displayModal}
+  on:click={toggleModal} />
 
 <main>
+  <!-- <button on:click={toggleModal}>Open Modal</button> -->
+  <!-- on:click|once meansthe event will only trigger once -->
+  <button on:click|once={toggleModal}>Open Modal</button>
   {#each people as person (person.id)}
     <div>
       <h1>Here, this is {person.name}.</h1>

@@ -86,28 +86,4 @@ main {
   padding: 25px;
 }
 
-h1 {
-  color: orangered;
-  display: block;
-  font-family: sans-serif;
-}
 
-h5 {
-  color: darkorange;
-  display: block;
-  font-family: serif;
-}
-
-h4 {
-  color: navy;
-  display: block;
-  font-family: monospace;
-}
-
-button {
-  box-shadow: inset 0 0 10px #000000;
-}
-
-button:hover {
-  box-shadow: 0 8px 6px -6px black;
-}
