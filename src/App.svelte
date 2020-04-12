@@ -1,4 +1,6 @@
 <script>
+  import Modal from "./Modal.svelte";
+
   let people = [
     { name: "Naruto", beltColor: "Orange", age: 15, id: 1 },
     { name: "Jiraiya", beltColor: "Red", age: 55, id: 2 },
@@ -12,38 +14,6 @@
   let num = 5;
 </script>
 
-<style>
-  main {
-    margin: 25px;
-    padding: 25px;
-  }
-
-  h1 {
-    color: orangered;
-    display: block;
-    font-family: sans-serif;
-  }
-
-  h5 {
-    color: darkorange;
-    display: block;
-    font-family: serif;
-  }
-
-  h4 {
-    color: navy;
-    display: block;
-    font-family: monospace;
-  }
-
-  button {
-    box-shadow: inset 0 0 10px #000000;
-  }
-
-  button:hover {
-    box-shadow: 0 8px 6px -6px black;
-  }
-</style>
 
 <!-- <main>
   <div>
@@ -71,6 +41,8 @@
 <p>Neither</p>
 {/if} -->
 
+<Modal />
+
 <main>
   {#each people as person (person.id)}
     <div>
@@ -81,7 +53,7 @@
         </p>
       {:else}
         <p>
-          <b>Others</b>
+          <b>Other</b>
         </p>
       {/if}
       <h5>The ninja is {person.age} years old.</h5>
