@@ -74,11 +74,37 @@
 {/if} -->
 
 <!-- <Modal message="Prop from main component ..." isPromo={true} displayModal={displayModal} /> -->
-<Modal
+<!-- <Modal
   message="Prop from main component ..."
   isPromo={true}
   {displayModal}
-  on:click={toggleModal} />
+  on:click={toggleModal} /> -->
+
+<Modal
+  isPromo={true}
+  {displayModal}
+  on:click={toggleModal}>
+
+<form>
+  <input type="text" placeholder="name" />
+  <input type="text" placeholder="belt color" />
+  <button>Add Person</button>
+</form>
+</Modal>
+
+<<!-- Modal
+  isPromo={true}
+  {displayModal}
+  on:click={toggleModal}>
+<form>
+  <input type="text" placeholder="name" />
+  <input type="text" placeholder="belt color" />
+  <button>Add Person</button>
+</form>
+<div slot="title">
+  <h3>Add A New Person</h3>
+</div>
+</Modal> -->
 
 <main>
   <!-- <button on:click={toggleModal}>Open Modal</button> -->
