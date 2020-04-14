@@ -1,5 +1,6 @@
 <script>
   import Modal from "./Modal.svelte";
+  import Form from "./Form.svelte";
 
   let displayModal = false;
   const toggleModal = () => {
@@ -47,69 +48,18 @@
   }
 </style>
 
-<!-- <main>
-  <div>
-    <h4>{people[0].name}</h4>
-    <p>{people[0].beltColor}</p>
-    <p>{people[0].age}</p>
-  </div>
-  <div>
-    <h4>{people[1].name}</h4>
-    <p>{people[1].beltColor}</p>
-    <p>{people[1].age}</p>
-  </div>
-  <div>
-    <h4>{people[2].name}</h4>
-    <p>{people[2].beltColor}</p>
-    <p>{people[2].age}</p>
-  </div>
-</main> -->
-
-<!-- {#if num > 20}
-<p>Greater than 20.</p>
-{:else if num > 5}
-<p>Greater than 5.</p>
-{:else}
-<p>Neither</p>
-{/if} -->
-
-<!-- <Modal message="Prop from main component ..." isPromo={true} displayModal={displayModal} /> -->
-<!-- <Modal
-  message="Prop from main component ..."
-  isPromo={true}
-  {displayModal}
-  on:click={toggleModal} /> -->
 
 <Modal
   isPromo={true}
   {displayModal}
   on:click={toggleModal}>
-
-<form>
-  <input type="text" placeholder="name" />
-  <input type="text" placeholder="belt color" />
-  <button>Add Person</button>
-</form>
+<Form />
 </Modal>
 
-<<!-- Modal
-  isPromo={true}
-  {displayModal}
-  on:click={toggleModal}>
-<form>
-  <input type="text" placeholder="name" />
-  <input type="text" placeholder="belt color" />
-  <button>Add Person</button>
-</form>
-<div slot="title">
-  <h3>Add A New Person</h3>
-</div>
-</Modal> -->
 
 <main>
-  <!-- <button on:click={toggleModal}>Open Modal</button> -->
-  <!-- on:click|once meansthe event will only trigger once -->
-  <button on:click|once={toggleModal}>Open Modal</button>
+ 
+  <button on:click={toggleModal}>Open Modal</button>
   {#each people as person (person.id)}
     <div>
       <h1>Here, this is {person.name}.</h1>
@@ -135,47 +85,3 @@
     <p>No people to show...</p>
   {/each}
 </main>
-
-<!-- <script>
-  //   let name = "Rabby";
-  let firstName = "Istiqur";
-  let lastName = "Rahman";
-  //   let profession = "Frontend Developer";
-  let color = "blue";
-
-  // Reactive value
-  $: fullName = `${firstName} ${lastName}`;
-  // Reactive statement
-  //   $: console.log(color);
-  //   $: {
-  //     console.log(firstName);
-  //     console.log(color);
-  //     console.log(lastName);
-  //     console.log(fullName);
-  //   }
-
-  const handleClick = () => {
-    // name = "Istiqur";
-    color = "black";
-  };
-
-  const handleInput = e => {
-    color = e.target.value;
-  };
-</script> -->
-
-<!-- <main>
-  <h1>Meet {name} :)</h1>
-  <h3 style="color: {color}">He likes the color {color}</h3>
-  <button on:click={handleClick}>Update Name</button>
-   <input type="text" on:input={handleInput} value={name} /> -->
-<!-- <input type="text" on:input={handleInput} /> -->
-<!-- <input type="text" bind:value={color} />
-</main> -->
-<!-- <main>
-  <h3>{fullName} likes the color {color}</h3> -->
-<!-- <h3>{firstName} {lastName} likes the color {color}</h3> -->
-<!-- <input type="text" bind:value={firstName} />
-  <input type="text" bind:value={lastName} />
-  <input type="text" bind:value={color} />
-</main> -->

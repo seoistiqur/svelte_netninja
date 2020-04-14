@@ -1,13 +1,5 @@
 <script>
-  // Some Event Modifiers
-  // Once ->event can only fire once (removes handler).
-  // precentDefault ->precent default action (e.preventDefault).
-  // self -> only fires ifclicked on self.
-
-  // export let message;
-  //   let message = "not prop";
   export let displayModal = false;
-  //   export let isPromo = false;
   export let isPromo = true;
 </script>
 
@@ -30,31 +22,11 @@
   }
 
   .promo .modal {
-    background: maroon;
+    background: indigo;
   }
 </style>
 
 {#if displayModal}
-  <!-- a blank on:click isforwarding event to the parent component -->
-  <!-- <div class="backdrop" class:promo={isPromo}>
-    <div class="modal">
-      <p on:click>{message}</p>
-    </div>
-  </div> -->
-  <!-- <div class="backdrop" class:promo={isPromo} on:click>
-    <div class="modal">
-      <p>{message}</p>
-    </div>
-  </div> -->
-  <!-- on:click|self means "self event modifier" -->
-  <!-- <div class="backdrop" class:promo={isPromo} on:click|self>
-    <div class="modal">
-      <p>{message}</p>
-      <slot></slot>
-      <slot name="title"></slot>
-      <slot></slot>
-    </div>
-  </div> --> 
 
   <div class="backdrop" class:promo={isPromo} on:click|self>
     <div class="modal">
