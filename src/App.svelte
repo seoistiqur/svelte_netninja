@@ -40,11 +40,11 @@
   }
 
   button {
-    box-shadow: inset 0 0 10px #000000;
+     box-shadow: 0 8px 6px -6px black;
   }
 
   button:hover {
-    box-shadow: 0 8px 6px -6px black;
+     box-shadow: inset 0 0 10px #000000;
   }
 </style>
 
