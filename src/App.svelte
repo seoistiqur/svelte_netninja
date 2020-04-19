@@ -18,6 +18,13 @@
   };
 
   let num = 5;
+
+  const addPerson = (e) => {
+    // console.log(e.detail);
+    const person = e.detail;
+    people = [person, ...people];
+    displayModal = false;
+  };
 </script>
 
 <style>
@@ -53,13 +60,14 @@
   isPromo={true}
   {displayModal}
   on:click={toggleModal}>
-<Form />
+<Form on:addPerson={addPerson} />
 </Modal>
 
 
 <main>
  
   <button on:click={toggleModal}>Open Modal</button>
+
   {#each people as person (person.id)}
     <div>
       <h1>Here, this is {person.name}.</h1>
@@ -73,7 +81,8 @@
         </p>
       {/if}
       <h5>The ninja is {person.age} years old.</h5>
-      <h4>Corrspondent belt color is {person.beltColor}.</h4>
+      <h4>Corrspondent belt color is {person.beltColor}</h4>
+
       <button
         on:click={() => {
           handleDelete(person.id);
@@ -81,7 +90,9 @@
         Delete
       </button>
     </div>
+
   {:else}
     <p>No people to show...</p>
   {/each}
+  
 </main>
